@@ -69,7 +69,7 @@ kramdown:
   syntax_highlighter_opts:
     default_lang: html
 
-remote_theme: ramottamado/nadya
+remote_theme: ramottamado/nadya@v0.1.7
 
 plugins:
   - jekyll-feed
