@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Low-level Streams Left Join in Apache Flink
+title: Low-level Left Join in Apache Flink
 date: '2022-02-11 14:13 +0700'
 categories:
     - data engineering
