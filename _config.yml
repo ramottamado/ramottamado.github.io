@@ -65,12 +65,7 @@ permalink: /:title/
 
 # Build settings
 markdown: kramdown
-kramdown:
-  syntax_highlighter_opts:
-    default_lang: html
-
-remote_theme: ramottamado/nadya@v0.1.7
-
+remote_theme: ramottamado/nadya
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
