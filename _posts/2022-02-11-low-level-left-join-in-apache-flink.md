@@ -11,7 +11,7 @@ tags:
 keywords:
     - apache flink
     - left join
-description: Apache Flink stateful stream processing to do left join between streams
+description: Apache Flink stateful stream processing to do left join between streams.
 preview: /assets/images/flink-1.webp
 ---
 
