@@ -15,7 +15,7 @@ tags:
   - hive
   - spark
   - python
-lastmod: '2022-02-09 13:38 +0700'
+lastmod: '2022-02-11 15:47 +0700'
 ---
 
 ## Background
@@ -112,3 +112,7 @@ _df = (spark
 
 2. Untuk _kerberised cluster_, `JDBC_URL` harus disesuaikan dengan `AuthMethod` yang tersedia pada **HiveServer2**.
 Cara untuk membuat koneksi ke _kerberised_ **Hive** _cluster_ akan dijelaskan pada kesempatan lainnya.
+
+---
+
+Note: This article was previously posted under https://ramottamado.dev/cara-menggunakan-jvm-pada-pyspark-untuk-melakukan-query-via-jdbc/
