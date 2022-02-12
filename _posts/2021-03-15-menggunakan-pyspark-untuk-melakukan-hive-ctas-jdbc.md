@@ -15,6 +15,9 @@ tags:
   - hive
   - spark
   - python
+redirect_from:
+  - /cara-menggunakan-jvm-pada-pyspark-untuk-melakukan-query-via-jdbc/
+  - /menggunakan-pyspark-untuk-melakukan-hive-ctas-jdbc/
 lastmod: '2022-02-11 15:47 +0700'
 ---
 

@@ -12,6 +12,8 @@ tags:
   - virtualmin
   - webserver
 preview: /assets/images/virtualmin.png
+redirect_from:
+  - /cara-membuat-virtual-server-baru-di-virtualmin/
 lastmod: '2022-02-07 23:36 +0700'
 ---
 _Hello_ pembaca sekalian. Kali ini saya akan menjelaskan langkah-langkah cepat untuk membuat _virtual server_ di **Virtualmin**.

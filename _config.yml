@@ -3,10 +3,7 @@ title: "Tamado Ramot Sitohang"
 email: "hello@ramottamado.dev"
 author: "Tamado Ramot Sitohang"
 url: "https://ramottamado.dev"
-tagline: "Big data engineering and analytics"
-description: >- # this means to ignore newlines and trim last newline
-  Tamado Ramot Sitohang's blog.<br />
-  Made with ❤️.
+description: "Data engineering and analytics"
 
 # Theme
 nadya:
@@ -61,7 +58,7 @@ feed:
 
 # Jekyll
 excerpt_separator: <!--more-->
-permalink: /:title/
+permalink: /:year/:month/:day/:title/
 
 # Build settings
 markdown: kramdown
@@ -70,3 +67,5 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
   - jemoji
+  - jekyll-redirect-from
+  - jekyll-relative-links

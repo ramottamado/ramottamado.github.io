@@ -12,6 +12,8 @@ tags:
   - jekyll
 lastmod: '2022-02-07 20:51 +0700'
 preview: /assets/images/jekyll-logo.png
+redirect_from:
+  - /coba-jekyll/
 ---
 Akhirnya saya memutuskan untuk memakai [Jekyll][jekyll] sebagai *platform* untuk *blog* saya.<!--more-->
 

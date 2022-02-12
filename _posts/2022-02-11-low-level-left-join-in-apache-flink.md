@@ -3,16 +3,20 @@ layout: post
 title: Low-level Left Join in Apache Flink
 date: '2022-02-11 14:13 +0700'
 categories:
-    - data engineering
+  - data engineering
 tags:
-    - flink
-    - stream processing
-    - java
+  - flink
+  - stream processing
+  - java
 keywords:
-    - apache flink
-    - left join
-description: Apache Flink stateful stream processing to do left join between streams.
+  - apache flink
+  - left join
+description: Using Apache Flink stateful stream processing to do left join between streams.
 preview: /assets/images/flink-1.webp
+redirect_from:
+  - /low-level-left-join-in-apache-flink/
+  - /low-level-streams-left-join-in-apache-flink/
+lastmod: '2022-02-12 11:49 +0700'
 ---
 
 ## Background
@@ -120,6 +124,6 @@ public void processElement1(final FACT value, final Context ctx, final Collector
 
 ## Conclusion
 
-As the name suggests, to do low-level join is not that straightforward in Apache Flink. However, with low-level join we can control how exactly the logic of the stream join, as demonstrated with the above abstract class, where we can fine-tune and change the logic of `join()` method in the implementing class. Optionally, since we can have side outputs in Flink, we can add logic to output records to side outputs, e.g. records without corresponding dimension state.
+As the name suggests, to do low-level join is not that straightforward in Apache Flink. However, with low-level join we can control how exactly the logics of the stream join is, as demonstrated with the above abstract class where we can fine-tune and change the logics of `join()` method in the implementing class. Optionally, since we can have side outputs in Flink, we can add some logics to output records to side outputs, e.g. records without corresponding dimension state.
 
 [flink-state]: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/dev/datastream/fault-tolerance/state/
