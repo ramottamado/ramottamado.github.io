@@ -17,12 +17,12 @@ preview: /assets/images/flink-1.webp
 redirect_from:
   - /low-level-left-join-in-apache-flink/
   - /low-level-streams-left-join-in-apache-flink/
-lastmod: '2022-02-12 11:49 +0700'
+lastmod: '2022-02-13 00:11 +0700'
 ---
 
 ## Background
 
-To do low-level left join between streams in Apache Flink, we need to utilize one of the Flink's process function classes, i.e. `KeyedCoProcessFunction` class.<!--more--> The `KeyedCoProcessFunction` class gives us the ability to use Flink [state][flink-state]. Flink state is used to hold the state of the dimension stream, which is the stream we use to enrich the main stream. In this implementation below, everytime we pass a record into the main stream, the `KeyedCoProcessFunction` will look into the state of the dimension stream, and then call a method to transform the main stream with data from the dimension stream. After that, the `KeyedCoProcessFunction` will output the transformed data to be processed with another process function or to be put into a sink.
+To do low-level left joins between streams in Apache Flink, we need to utilize one of  Flink’s process function classes, i.e. `KeyedCoProcessFunction` class.<!--more--> The `KeyedCoProcessFunction` class gives us the ability to use Flink's [keyed state][flink-state]. Flink's keyed state is used to hold the state of the dimension stream, which is the stream we use to enrich the main stream. In this implementation below, every time we pass a record into the main stream, the `KeyedCoProcessFunction` will look into the state of the dimension stream, and then call a method to transform the main stream with data from the dimension stream. After that, the `KeyedCoProcessFunction` will output the transformed data to be processed with another process function or to be put into a sink.
 
 ## Implementation
 
@@ -76,7 +76,7 @@ public abstract class FactDimStreamJoin<KEY, FACT, DIM, OUT> extends
 }
 ```
 
-In this abstract class, we define `FactDimStreamJoin` as an abstract class extending `KeyedCoProcessFunction`. We define `stateName` and `dimClass` as the Flink state name (Flink uses state name as identifier) and the class of the dimension stream. We also created field `dimState`, which will be initialized in `open()` method. This field will hold the state for the dimension stream. We use `ValueState` so that we can update the state every time a new dimension record with same key arrived. The abstract method `join()` will define how we join the streams, which will be implemented in the implementing class.
+In this abstract class, we define `FactDimStreamJoin` as an abstract class extending `KeyedCoProcessFunction`. We define `stateName` and `dimClass` as Flink's state name (Flink uses state name as the identifier) and the class of the dimension stream. We also created the field `dimState`, which will be initialized in the `open()` method. This field will hold the state for the dimension stream. We use `ValueState` so that we can update the state every time a new dimension record with the same key arrived. The abstract method `join()` will define how we join the streams, which will be implemented in the implementing class.
 
 ### The `open()` method
 
@@ -110,7 +110,7 @@ public void processElement2(final DIM value, final Context ctx, final Collector<
 
 ### Transforming the main stream
 
-Last but not least, we need to implement the method to process the main stream. In this process, we will call the `join()` method to join the incoming record with the record from dimension stream that we currently have in the state store. It will look like this:
+Last but not least, we need to implement the method to process the main stream. In this process, we will call the `join()` method to join the incoming record with the record from the dimension stream that we currently have in the state store. It will look like this:
 
 ```java
 @Override
@@ -125,6 +125,6 @@ public void processElement1(final FACT value, final Context ctx, final Collector
 
 ## Conclusion
 
-As the name suggests, to do low-level join is not that straightforward in Apache Flink. However, with low-level join we can control how exactly the logics of the stream join is, as demonstrated with the above abstract class where we can fine-tune and change the logics of `join()` method in the implementing class. Optionally, since we can have side outputs in Flink, we can add some logics to output records to side outputs, e.g. records without corresponding dimension state.
+As the name suggests, to do low-level join is not that straightforward in Apache Flink. However, with low-level join, we can control how exactly the logic of the stream join is, as demonstrated with the above abstract class where we can fine-tune and change the logic of the `join()` method in the implementing class. Optionally, since we can have side outputs in Flink, we can add some logic to output records to side outputs, e.g. records without corresponding dimension state.
 
 [flink-state]: https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/dev/datastream/fault-tolerance/state/
