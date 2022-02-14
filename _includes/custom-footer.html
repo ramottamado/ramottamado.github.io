@@ -1,42 +1,45 @@
-<div class="footer-col">
+<div class="footer-col-wrapper">
   <style>
-    @media screen and (min-width: 800px) {
-      .footer-col-last-desktop {
+    .footer-col-wrapper-cc>.footer-col:not(:last-child) {
+      margin-bottom: 15px;
+    }
+
+    @media screen and (min-width: 600px) {
+      .footer-col-wrapper-cc>.footer-col:not(:last-child) {
         margin-bottom: 0 !important;
       }
     }
-
-    .footer-col-last-mobile {
-      margin-bottom: 0 !important;
-    }
   </style>
-  <small class="footer-meta-attribution post-foot-meta">
-    <span>
-      &lt;/&gt; hosted on <a href="https://github.io">GitHub Pages</a>.
-      Powered by <a href="https://jekyllrb.com">Jekyll</a>
-      and <a href="https://github.com/ramottamado/nadya">nadya</a> theme.
-      Subscribe <a href="/feed.xml">via RSS</a>.
-    </span>
-  </small>
-</div>
-<div class="footer-col footer-col-wrapper footer-col-no-margin">
-  <div class="footer-col footer-col-10 footer-col-last-desktop">
-    <small class="footer-meta-attribution post-foot-meta">
-      <a class="logo" style="font-size: 1.75rem !important; color: unset; cursor: pointer;" rel="license"
-        href="https://creativecommons.org/licenses/by/4.0/">
-        <span class="creative-commons">
-          {% include icons/cc.svg %}
-          {% include icons/by.svg %}
+
+  <div class="footer-col footer-col-wrapper footer-col-wrapper-cc">
+    <div class="footer-col footer-col-10">
+      <small class="footer-meta-attribution post-foot-meta">
+        <a class="logo" style="font-size: 1.75rem !important; color: unset; cursor: pointer;" rel="license"
+          href="https://creativecommons.org/licenses/by/4.0/">
+          <span class="creative-commons">
+            {% include icons/cc.svg %}
+            {% include icons/by.svg %}
+          </span>
+        </a>
+      </small>
+    </div>
+    <div class="footer-col footer-col-90 footer-col-left footer-col-no-margin">
+      <small class="footer-meta-attribution post-foot-meta">
+        <span>
+          &copy; {{ 'now' | date: "%Y" }} {{ site.author }}. Except where otherwise stated, this work is licensed under
+          a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+            Creative Commons Attribution 4.0 International License</a>.
         </span>
-      </a>
-    </small>
+      </small>
+    </div>
   </div>
-  <div class="footer-col footer-col-90 footer-col-left footer-col-last-mobile">
+  <div class="footer-col footer-col-no-margin">
     <small class="footer-meta-attribution post-foot-meta">
       <span>
-        &copy; {{ 'now' | date: "%Y" }} {{ site.author }}. Except where otherwise stated, this work is licensed under a
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-          Creative Commons Attribution 4.0 International License</a>.
+        &lt;/&gt; hosted on <a href="https://github.io">GitHub Pages</a>.
+        Powered by <a href="https://jekyllrb.com">Jekyll</a>
+        and <a href="https://github.com/ramottamado/nadya">nadya</a> theme.
+        Subscribe <a href="/feed.xml">via RSS</a>.
       </span>
     </small>
   </div>
