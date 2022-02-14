@@ -17,7 +17,7 @@ preview: /assets/images/flink-1.webp
 redirect_from:
   - /low-level-left-join-in-apache-flink/
   - /low-level-streams-left-join-in-apache-flink/
-lastmod: '2022-02-13 00:11 +0700'
+lastmod: '2022-02-15 01:25 +0700'
 ---
 
 ## Background
@@ -28,7 +28,7 @@ To do low-level left joins between streams in Apache Flink, we need to utilize o
 
 ### The `FactDimStreamJoin` class
 
-A fairly basic example of an abstract class extending `KeyedCoProcessFunction` to do low-level joins will look like this:
+A fairly basic example of an abstract class extending `KeyedCoProcessFunction` to do low-level left join will look like this:
 
 ```java
 /**
