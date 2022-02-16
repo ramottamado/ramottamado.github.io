@@ -162,13 +162,7 @@ val hbaseDf = spark.createDataFrame(newRdd, schema)
 
 Note that this method can only be applied if the `USERID` part has a fixed length. The efficiency and performance of the FuzzyRowFilter usually depend on the cardinality of the fuzzy parts. For example, if the cardinality of the `USERID` part is very high, the performance of FuzzyRowFilter will be almost if not the same as a full table scan, since Apache HBase cannot skip any rows while scanning the tables. In the end, it's a matter of how do you implement the row key design since this will affect how much performance you will get by using Apache HBase. Hope this article clears any of your confusion with HBase FuzzyRowFilter. Until next time!
 
----
-References:
-
 [^1]: [Apache HBase official site.](https://hbase.apache.org/)
-
 [^2]: [Apache Spark official site.](https://spark.apache.org/)
-
 [^3]: [The Apache HBase book.](https://hbase.apache.org/book.html#arch.overview)
-
 [^4]: [Sematext article.](https://sematext.com/blog/consider-using-fuzzyrowfilter-when-in-need-for-secondary-indexes-in-hbase/)
