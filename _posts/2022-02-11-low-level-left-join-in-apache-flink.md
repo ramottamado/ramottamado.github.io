@@ -22,7 +22,7 @@ lastmod: '2022-02-20 22:58 +0700'
 
 ## Background
 
-To do low-level left joins between streams in Apache Flink, we need to utilize one of the process function classes, i.e., the `KeyedCoProcessFunction` class.<!--more--> The `KeyedCoProcessFunction` class gives us the ability to use [keyed state][flink-state]. Flink's keyed state will hold the state of the dimension stream, which is the stream we use to enrich the primary stream. In this implementation below, every time we pass a record into the primary stream, the `KeyedCoProcessFunction` will look into the state of the dimension stream, and then call a method to transform the primary stream with data from the dimension stream, if data with the same key exists. After that, the `KeyedCoProcessFunction` will output the transformed data.
+To do low-level left joins between streams in Apache Flink, we need to utilize one of the process function classes, i.e., the `KeyedCoProcessFunction` class.<!--more--> The `KeyedCoProcessFunction` class gives us the ability to use [keyed state][flink-state]. Flink's keyed state will hold the state of the dimension stream, which is the stream we use to enrich the primary stream. In this implementation below, every time we pass a record into the primary stream, the `KeyedCoProcessFunction` will look into the state of the dimension stream and then call a method to transform the primary stream with data from the dimension stream, if data with the same key exists. After that, the `KeyedCoProcessFunction` will output the transformed data.
 
 ## Implementation
 
@@ -33,7 +33,7 @@ A fairly basic example of an abstract class extending `KeyedCoProcessFunction` t
 ```java
 /**
  * The {@code FactDimStreamJoin} defines common method
- * to join fact and dimension streams.
+ * to join fact (primary) and dimension streams.
  *
  * @param <KEY>  join key
  * @param <FACT> primary stream
