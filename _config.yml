@@ -11,14 +11,14 @@ nadya:
   disable_attribution: true
 
 # Giscus
-giscus:
-  repo: "ramottamado/ramottamado.github.io"
-  repo_id: "R_kgDOG0sN9g"
-  category: "Announcements"
-  category_id: "DIC_kwDOG0sN9s4CBNAW"
-  mapping: "og:title"
-  reactions: 1
-  input: "bottom"
+# giscus:
+#   repo: "ramottamado/ramottamado.github.io"
+#   repo_id: "R_kgDOG0sN9g"
+#   category: "Announcements"
+#   category_id: "DIC_kwDOG0sN9s4CBNAW"
+#   mapping: "og:title"
+#   reactions: 1
+#   input: "bottom"
 
 # Default
 defaults:
