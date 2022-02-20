@@ -36,7 +36,7 @@ A fairly basic example of an abstract class extending `KeyedCoProcessFunction` t
  * to join fact and dimension streams.
  *
  * @param <KEY>  join key
- * @param <FACT> fact stream
+ * @param <FACT> primary stream
  * @param <DIM>  dimension stream
  * @param <OUT>  joined stream
  */
@@ -68,7 +68,7 @@ public abstract class FactDimStreamJoin<KEY, FACT, DIM, OUT> extends
    * Joins fact and dimension streams with the same key.
    *
    * @param key  join key
-   * @param fact fact stream
+   * @param fact primary stream
    * @param dim  dimension stream
    * @return joined the stream
    */
