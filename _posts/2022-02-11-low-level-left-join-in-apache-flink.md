@@ -26,7 +26,7 @@ To do low-level left joins between streams in Apache Flink, we need to utilize o
 
 ## Implementation
 
-### The `FactDimStreamJoin` class
+### The `FactDimStreamJoin` Class
 
 A fairly basic example of an abstract class extending `KeyedCoProcessFunction` to do low-level left join will look like this:
 
@@ -65,7 +65,7 @@ public abstract class FactDimStreamJoin<KEY, FACT, DIM, OUT> extends
   }
 
   /**
-   * Joins fact and dimension streams with the same key.
+   * Joins fact (primary) and dimension streams with the same key.
    *
    * @param key  join key
    * @param fact primary stream
@@ -78,7 +78,7 @@ public abstract class FactDimStreamJoin<KEY, FACT, DIM, OUT> extends
 
 In this abstract class, we define `FactDimStreamJoin` extending `KeyedCoProcessFunction`. We define `stateName` and `dimClass` as Flink's state name (Flink uses state name as the identifier) and the class of the dimension stream. We also created the field `dimState`, which we will initialize in the `open()` method. This field will hold the state for the dimension stream, employing the `ValueState` type. We will update the `dimState` every time a new record with the same key arrives. The abstract method `join()` will define how we join the streams in the implementing class.
 
-### The `open()` method
+### The `open()` Method
 
 The `open()` method, to initialize the `ValueState`:
 
@@ -96,7 +96,7 @@ public void open(final Configuration parameters) throws Exception {
 }
 ```
 
-### What to do when the dimension stream arrived
+### What to Do When the Dimension Stream Arrives
 
 When we process the dimension stream, we will update the `ValueState` every time a new record arrives. The implementation will look like this:
 
