@@ -7,7 +7,7 @@ description: "Data engineering and analytics"
 
 # Theme
 nadya:
-  disable_social: false
+  disable_social: true
   disable_attribution: true
 
 # Giscus
@@ -43,14 +43,13 @@ alt_icon: "favicon.ico"
 google_site_verification: "zaJj36ddah20RkBG1RrQqWm-IlXepNuw8ch6SYXeBPQ"
 gravatar: d380135b4724b6b8e74bd9f41b978284
 github:
-  username: "ramottamado"
+  username: ramottamado
 # instagram:
 #   username: ""
 # linkedin:
 #   username: "ramottamado"
 twitter:
   card: summary
-  username: "theramottamado"
 facebook:
   publisher: 103250301049786
   author: 100000091609630
