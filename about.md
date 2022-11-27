@@ -1,7 +1,7 @@
 ---
-title: About
 layout: page
-lastmod: '2022-02-07T13:11:29.528Z'
+title: About
+permalink: /about/
 ---
 Experienced data engineer with a demonstrated history of working in the financial industry. Skilled in **analytics engineering**, **software engineering**, **stateful streaming** and **big data analytics**. **Cloudera Certified Associate Data Analyst** and **CDP Certified Generalist**. Avid learner and problem solver. Mainly code in **Python**, **SQL**, **Java** and **Scala**.
 
