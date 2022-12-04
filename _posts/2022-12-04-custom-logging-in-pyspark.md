@@ -4,6 +4,8 @@ title: Custom Logging in PySpark
 date: 2022-12-04 21:21 +0700
 categories:
   - data engineering
+  - tutorial
+  - big data
 tags:
   - spark
   - python
@@ -13,8 +15,9 @@ keywords:
   - pyspark
   - custom logging
 description: Custom logging in PySpark, and disabling excessive logging.
-excerpt: .
+excerpt: Are you frustrated by excessive logging in PySpark?
 preview: /assets/images/spark.png
+meta: Apache Spark logo
 ---
 
 Are you frustrated by excessive logging in PySpark? Do you feel those logs are not
