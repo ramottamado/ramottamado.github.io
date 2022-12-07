@@ -18,7 +18,7 @@ tags:
 redirect_from:
   - /cara-menggunakan-jvm-pada-pyspark-untuk-melakukan-query-via-jdbc/
   - /menggunakan-pyspark-untuk-melakukan-hive-ctas-jdbc/
-last_modified_at: '2022-02-11 15:47 +0700'
+last_modified_at: '2022-12-07 11:45 +0700'
 ---
 
 ## Background
@@ -38,6 +38,7 @@ tulisan berikut adalah sebuah _workaround_ untuk mengatasi _drop performance_ te
 
 _Let's revisit how we access Hive tables through JDBC_. Umumnya, ketika menggunakan koneksi **Hive** JDBC pada
 **Spark/PySpark**, kita menggunakan _method_ berikut:
+
 ```python
 df = (spark
     .read
@@ -46,6 +47,7 @@ df = (spark
     ...
     .load())
 ```
+
 Dengan menggunakan _method_ tersebut, **Spark** akan melempar _query_ ke **HiveServer2** dan kemudian _fetch_ data
 melalui JDBC _connection_ tersebut. Metode ini sangat tidak efisien untuk digunakan pada _table_ berukuran jumbo.
 Apalagi, menggunakan koneksi JDBC untuk mengakses _table_ **Hive** yang berada pada satu _cluster_ sebenarnya tidak
@@ -65,17 +67,22 @@ _methods_ melalui JVM dari _driver_ **Spark** _job_ yang berjalan tersebut.
 **PySpark** menggunakan _module_ **Py4J** untuk berkomunikasi dengan JVM. Untuk mengakses JVM pada **PySpark**, kita
 akan menggunakan _**gateway**_ yang ada pada **SparkContext** dengan cara berikut (asumsi variabel `spark` adalah
 **SparkSession** yang sedang berjalan):
+
 ```python
 jvm = spark.sparkContext._gateway.jvm
 ```
+
 Kemudian, untuk melakukan _query_ pada JVM, kita harus menggunakan `DriverManager` untuk membuat koneksi ke JDBC server,
 membuat `statement` atau `preparedStatement`, dan kemudian melakukan `execute`. Menggunakan **Py4J**, kita dapat
 melakukan _import_ `DriverManager` menggunakan _function_ `java_import` seperti berikut:
+
 ```python
 from py4j.java_gateway import java_import
 java_import(jvm, "java.sql.Drivermanager")
 ```
+
 Kemudian selanjutnya untuk membuat _connection_ dan _execute query_:
+
 ```python
 JDBC_URL = "jdbc:hive2://<jdbc_server>:<port>/<schema>"
 VIEW_NAME = "<view_name>"
@@ -95,7 +102,9 @@ query = """
 
 stmt.executeUpdate(query)
 ```
+
 _Done!_ _Materialized temporary table_ sudah dapat diakses secara normal menggunakan **PySpark**.
+
 ```python
 df = spark.table(TEMP_TABLE)
 ```
@@ -103,18 +112,19 @@ df = spark.table(TEMP_TABLE)
 ## Caveats and Potential Issue
 
 1. Jika _jar_ JDBC _driver_ berada di HDFS, maka `sparkContext` tidak akan secara otomatis menambah _jar_ tersebut pada
-_classpath_. _Workaround_ untuk _issue_ ini adalah dengan melakukan _query_ ringan terlebih dahulu melalui:
-```python
-_df = (spark
-    .read
-    .format("jdbc")
-    .option("dbtable", "(SELECT * FROM <small_table> LIMIT 1) example")
-    ...
-    .load())
-```
+   _classpath_. _Workaround_ untuk _issue_ ini adalah dengan melakukan _query_ ringan terlebih dahulu melalui:
+
+   ```python
+   _df = (spark
+       .read
+       .format("jdbc")
+       .option("dbtable", "(SELECT * FROM <small_table> LIMIT 1) example")
+       ...
+       .load())
+   ```
 
 2. Untuk _kerberised cluster_, `JDBC_URL` harus disesuaikan dengan `AuthMethod` yang tersedia pada **HiveServer2**.
-Cara untuk membuat koneksi ke _kerberised_ **Hive** _cluster_ akan dijelaskan pada kesempatan lainnya.
+   Cara untuk membuat koneksi ke _kerberised_ **Hive** _cluster_ akan dijelaskan pada kesempatan lainnya.
 
 ---
 
