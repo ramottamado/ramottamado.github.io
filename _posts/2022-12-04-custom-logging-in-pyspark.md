@@ -18,6 +18,7 @@ description: Custom logging in PySpark, and disabling excessive logging.
 excerpt: Are you frustrated by excessive logging in PySpark?
 preview: /assets/images/spark.png
 meta: Apache Spark logo
+lastmod: 2022-12-07 10:32 +0700
 ---
 
 Are you frustrated by excessive logging in PySpark? Do you feel those logs are not
@@ -39,7 +40,7 @@ spark = (SparkSession.builder
     .appName("My Data Pipeline")
     .getOrCreate())
 
-logger_log4j = spark._jvm.org.apache.log4j # noqa
+log4j = spark._jvm.org.apache.log4j # noqa
 ```
 
 To disable Log4j logs for all classes with the prefix `org`
@@ -47,19 +48,19 @@ To disable Log4j logs for all classes with the prefix `org`
 we need to add this line of code:
 
 ```python
-logger_log4j.LogManager.getLogger("org").setLevel(log4j_logger.Level.OFF)
+log4j.LogManager.getLogger("org").setLevel(log4j.Level.OFF)
 ```
 
 This will tell the Log4j log manager to set the logging level of classes with the
-`org` prefix to **OFF**. If you are not comfortable with turning off the logs, you
-can use `Level.ERROR` or `Level.FATAL` instead.
+`org` prefix to **OFF**. If you are not comfortable with turning off the logs completely,
+you can use `Level.ERROR` or `Level.FATAL` instead.
 
 ## Creating Custom Log4j Logger
 
 To create a custom Log4j logger, this code will do the trick:
 
 ```python
-my_logger = logger_log4j.LogManager.getLogger("my_logger")
+my_logger = log4j.LogManager.getLogger("my_logger")
 my_logger.setLevel(...)
 ```
 
@@ -88,15 +89,13 @@ To create a custom logger for each class you have, you will need to make a custo
 class like below[^1]:
 
 ```python
-class LoggerProvide:
+class LoggerProvider:
     """
     Custom Logger
     """
 
-    def get_logger(self, spark):
-        log4j_logger = spark._jvm.org.apache.log4j  # noqa
-
-        return log4j_logger.LogManager.getLogger(
+    def get_logger(self, log4j):
+        return log4j.LogManager.getLogger(
             self.__full_name__()
         )
 
@@ -110,7 +109,7 @@ class LoggerProvide:
         return module + "." + klass.__name__
 ```
 
-Then, your class will need to extend the `CustomLogger` class like this:
+Then, your classes will need to extend the `CustomLogger` class like this:
 
 ```python
 class MyPipeline(LoggerProvider):
@@ -119,7 +118,8 @@ class MyPipeline(LoggerProvider):
     """
 
     def __init__(self):
-        self.logger = self.get_logger(spark)
+        log4j = spark._jvm.org.apache.log4j # noqa
+        self.logger = self.get_logger(log4j)
         self.logger.setLevel(...)
 
     def run(self):
