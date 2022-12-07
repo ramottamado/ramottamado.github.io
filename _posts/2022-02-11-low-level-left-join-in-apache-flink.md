@@ -17,7 +17,7 @@ preview: /assets/images/flink-1.webp
 redirect_from:
   - /low-level-left-join-in-apache-flink/
   - /low-level-streams-left-join-in-apache-flink/
-lastmod: '2022-02-20 22:58 +0700'
+last_modified_at: '2022-02-20 22:58 +0700'
 ---
 
 ## Background
