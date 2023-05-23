@@ -2,7 +2,7 @@
 layout: post
 title: Menggunakan PySpark untuk Melakukan Hive CTAS via JDBC
 date: '2021-03-15 20:58 +0700'
-preview: /assets/images/hive-logo.png
+image: /assets/images/hive-logo.png
 meta: Apache Hive logo
 description: 'Dalam sebuah use case, saya mendapati ada beberapa table di Hive yang harus diproses menggunakan PySpark ternyata merupakan view.'
 excerpt: 'Dalam sebuah use case, saya mendapati ada beberapa table di Hive yang harus diproses menggunakan PySpark ternyata merupakan view.'
@@ -109,7 +109,7 @@ _Done!_ _Materialized temporary table_ sudah dapat diakses secara normal menggun
 df = spark.table(TEMP_TABLE)
 ```
 
-## Caveats and Potential Issue
+## Caveats and Potential Issues
 
 1. Jika _jar_ JDBC _driver_ berada di HDFS, maka `sparkContext` tidak akan secara otomatis menambah _jar_ tersebut pada
    _classpath_. _Workaround_ untuk _issue_ ini adalah dengan melakukan _query_ ringan terlebih dahulu melalui:

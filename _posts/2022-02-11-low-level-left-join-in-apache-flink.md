@@ -13,7 +13,7 @@ keywords:
   - left join
 description: Using Apache Flink stateful stream processing to do left join between streams.
 excerpt: 'To do low-level left join between streams in Apache Flink, we need to utilize one of the Flink''s process function classes, i.e., KeyedCoProcessFunction class.'
-preview: /assets/images/flink-1.webp
+image: /assets/images/flink-1.webp
 redirect_from:
   - /low-level-left-join-in-apache-flink/
   - /low-level-streams-left-join-in-apache-flink/

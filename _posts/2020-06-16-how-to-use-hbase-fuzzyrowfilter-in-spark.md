@@ -8,7 +8,7 @@ keywords:
   - fuzzyrowfilter
   - big data
   - data engineering
-preview: /assets/images/hbase-logo.png
+image: /assets/images/hbase-logo.png
 meta: Apache HBase logo
 categories:
   - tutorial

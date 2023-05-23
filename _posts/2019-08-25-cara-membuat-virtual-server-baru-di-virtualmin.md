@@ -12,7 +12,7 @@ categories:
 tags:
   - virtualmin
   - webserver
-preview: /assets/images/virtualmin.png
+image: /assets/images/virtualmin.png
 redirect_from:
   - /cara-membuat-virtual-server-baru-di-virtualmin/
 last_modified_at: '2022-02-07 23:36 +0700'

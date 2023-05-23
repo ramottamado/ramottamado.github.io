@@ -16,7 +16,7 @@ keywords:
   - custom logging
 description: Custom logging in PySpark, and disabling excessive logging.
 excerpt: Are you frustrated by excessive logging in PySpark?
-preview: /assets/images/spark.png
+image: /assets/images/spark.png
 meta: Apache Spark logo
 last_modified_at: 2022-12-07 10:32 +0700
 ---
