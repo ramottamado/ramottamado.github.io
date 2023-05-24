@@ -40,14 +40,10 @@ icon: "favicon.png"
 alt_icon: "favicon.ico"
 
 # SEO
-google_site_verification: "zaJj36ddah20RkBG1RrQqWm-IlXepNuw8ch6SYXeBPQ"
+# google_site_verification: ""
 gravatar: d380135b4724b6b8e74bd9f41b978284
 github:
   username: ramottamado
-# instagram:
-#   username: ""
-# linkedin:
-#   username: "ramottamado"
 twitter:
   card: summary
 facebook:
