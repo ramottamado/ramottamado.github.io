@@ -8,7 +8,7 @@ description: "Data engineering and analytics"
 # Theme
 nadya:
   social: false
-  attribution: false
+  attribution: true
 
 # Giscus
 # giscus:
