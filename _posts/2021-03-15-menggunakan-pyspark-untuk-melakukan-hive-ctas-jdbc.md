@@ -18,7 +18,7 @@ tags:
 redirect_from:
   - /cara-menggunakan-jvm-pada-pyspark-untuk-melakukan-query-via-jdbc/
   - /menggunakan-pyspark-untuk-melakukan-hive-ctas-jdbc/
-last_modified_at: '2022-12-07 11:45 +0700'
+last_modified_at: '2024-02-04 13:51 +0700'
 ---
 
 ## Background
@@ -103,7 +103,7 @@ query = """
 stmt.executeUpdate(query)
 ```
 
-_Done!_ _Materialized temporary table_ sudah dapat diakses secara normal menggunakan **PySpark**.
+_Done!_ _Materialized temporary table_ sudah dapat diakses secara normal menggunakan **PySpark**:
 
 ```python
 df = spark.table(TEMP_TABLE)

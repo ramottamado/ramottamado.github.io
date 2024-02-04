@@ -18,7 +18,7 @@ description: Custom logging in PySpark, and disabling excessive logging.
 excerpt: Are you frustrated by excessive logging in PySpark?
 image: /assets/images/spark.png
 meta: Apache Spark logo
-last_modified_at: 2022-12-07 10:32 +0700
+last_modified_at: 2024-02-04 13:51 +0700
 ---
 
 Are you frustrated by excessive logging in PySpark? Do you feel those logs are not
@@ -74,7 +74,7 @@ my_logger.debug("This type of logs should be enabled explicitly.")
 my_logger.info("Trying to write to database...")
 
 # WARN logging
-my_logger.info("Cannot find database 'boombox', will use 'default' instead.")
+my_logger.warn("Cannot find database 'boombox', will use 'default' instead.")
 
 # ERROR logging
 my_logger.error("This should not happen.")
@@ -86,7 +86,7 @@ my_logger.fatal("Your cluster has been hit by cosmic radiation.")
 ## Creating Custom Logger by Class Name
 
 To create a custom logger for each class you have, you will need to make a custom
-class like below[^1]:
+class like this[^1]:
 
 ```python
 class LoggerProvider:

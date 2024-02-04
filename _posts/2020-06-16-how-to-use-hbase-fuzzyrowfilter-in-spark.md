@@ -20,7 +20,7 @@ tags:
   - scala
 redirect_from:
   - /how-to-use-hbase-fuzzyrowfilter-in-spark/
-last_modified_at: '2022-02-13 00:11 +0700'
+last_modified_at: '2024-02-04 13:51 +0700'
 ---
 I've been picking up some skills regarding big data engineering, and in this post, I want to share how to use Apache HBase **FuzzyRowFilter** in Apache Spark with Scala.<!--more--> Apache HBase is the Apache Hadoop database, a distributed, scalable, big data store.[^1] Apache Spark is a unified analytics engine for large-scale data processing.[^2]
 
@@ -34,7 +34,7 @@ FuzzyRowFilter takes one parameter: a list of pairs of the **fuzzy row key patte
 
 ## Implementation
 
-Let's try how to implement this in Apache Spark with Scala. First, we will create a **case class** containing the fuzzy row key pattern and the corresponding mask info.
+Let's try to implement this in Apache Spark with Scala. First, we will create a **case class** containing the fuzzy row key pattern and the corresponding mask info:
 
 ```scala
 case class FuzzyData(rowKeyPattern: String, maskInfo: String)
@@ -66,7 +66,7 @@ After that, we create an array of the `FuzzyData` case class for use in the filt
 val fuzzyRows: Seq[FuzzyData] = Seq(fuzzyData1, fuzzyData2)
 ```
 
-Now we create the function to create the filter for `HBaseConfiguration`.
+Now we create the function to create the filter for `HBaseConfiguration`:
 
 ```scala
 import java.util.Base64
@@ -102,7 +102,7 @@ def filterByFuzzy(fuzzyRows: Seq[FuzzyData]) = {
 }
 ```
 
-And then we can use it as below:
+And then we can use it like this:
 
 ```scala
 import org.apache.hadoop.hbase.client.Result

@@ -2,7 +2,7 @@
 layout: post
 title: 'Review Asal-asalan: RumZat Simplisio'
 date: '2019-09-28 20:17 +0700'
-published: false
+published: true
 image: /assets/images/simplisio.jpg
 description: Siapa yang belum tau Rumah Lezat Simplisio? 'Pusat Kuliner Dunia' yang terletak di Bandung ini menarik untuk dikunjungi loh! Check my review.
 categories:

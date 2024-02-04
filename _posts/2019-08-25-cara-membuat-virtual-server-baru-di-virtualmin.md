@@ -5,7 +5,7 @@ date: '2019-08-25 11:09 +0700'
 description: Langkah-langkah configure dan setup virtual server baru di Virtualmin.
 excerpt: Langkah-langkah configure dan setup virtual server baru di Virtualmin.
 meta: Virtualmin virtual server
-published: false
+published: true
 categories:
   - tutorial
   - linux
