@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Custom Logging in PySpark
+title: Custom logging in PySpark
 date: 2022-12-04 21:21 +0700
 categories:
   - data engineering
@@ -26,7 +26,7 @@ useful in any way? Do you wish to log things your way when you encounter errors
 in your data pipelines? Then hopefully this article will help you write your own
 logs in PySpark.
 
-## Disabling Excessive Logs
+## Disabling excessive logs
 
 As PySpark runs the process in JVM, the logs are Log4j logs. This means we can
 programmatically set the log level in our app. To do this, we will need to access
@@ -55,7 +55,7 @@ This will tell the Log4j log manager to set the logging level of classes with th
 `org` prefix to **OFF**. If you are not comfortable with turning off the logs completely,
 you can use `Level.ERROR` or `Level.FATAL` instead.
 
-## Creating Custom Log4j Logger
+## Creating custom Log4j logger
 
 To create a custom Log4j logger, this code will do the trick:
 
@@ -83,7 +83,7 @@ my_logger.error("This should not happen.")
 my_logger.fatal("Your cluster has been hit by cosmic radiation.")
 ```
 
-## Creating Custom Logger by Class Name
+## Creating custom logger by class name
 
 To create a custom logger for each class you have, you will need to make a custom
 class like this[^1]:

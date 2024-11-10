@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Setting Up Home Directory Encryption with LUKS on Fedora (and Auto-mount on
-  Login)
+title: Setting up home directory encryption with LUKS on Fedora (and auto-mount on
+  login)
 date: 2024-02-04 11:50 +0700
 categories:
   - linux
@@ -25,10 +25,10 @@ logout, `pam_mount` will never unmount your encrypted partition on logout. Facin
 workaround so I can still use `pam_mount` while ensuring the encrypted home directory will always be unmounted after
 user logout.
 
-## Setting Up `pam_mount`
+## Setting up `pam_mount`
 
 
-### The Dreaded XML
+### The dreaded XML
 
 To setup `pam_mount` to mount the encrypted home directory at user login, we need to create a `pam_mount.conf.xml` in
 `/etc/security`. I use LUKS-encrypted partition as my home directory, so the relevant config will look like:
@@ -72,7 +72,7 @@ directory will always have the correct SELINUX security context. I also set the 
 this will help us later in deciding the mapper name for the encrypted partition. You can also enable `relatime` if you
 need Linux `atime` that much.
 
-### The PAM Directives
+### The PAM directives
 
 We will set the PAM directives for specifically GDM logins, I don't care about SSH & shell logins since I only SSH to my
 machine if my user is already logged in and I rarely use shell login. We will start with the directives for GDM login
@@ -107,7 +107,7 @@ We need to add `pam_mount.so` on auth & session module interface, just like in t
 `password-auth` directive to enable `pam_mount`to get the passphrase from the password field in GDM login (since we only
 want to type the passphrase once).
 
-### The Post-logout `systemd` Hook
+### The post-logout `systemd` hook
 
 Now we need to override a `systemd` service to make sure the encrypted partition is unmounted after user logout. We
 start by creating a shell script to check the mountpoints and unmount them, we also need to lock the LUKS encrypted
@@ -156,7 +156,7 @@ out. Or you can create `/etc/systemd/system/user-runtime-dir@1000.service.d/over
 
 *Et voilà!* Now everything is set up accordingly.
 
-## Bonus: Enable Fingerprint Authentication on Everything Except Login
+## Bonus: Enable fingerprint authentication on everything except login
 
 I told you before that
 > fingerprint login is a little complicated
@@ -167,7 +167,7 @@ can work through this by disabling fingerprint login usinf `dconf` directives, b
 the `/org/gnome/login-screen/enable-fingerprint-authentication` key. To solve this, we will need to create our custom
 `authselect` profile to unlock this directive, and then set GDM to disable fingerprint on login.
 
-### Creating Custom `authselect` Profile
+### Creating custom `authselect` profile
 
 Run this command to create the custom profile (you can name it everything) with `sssd` as base:
 
@@ -178,7 +178,7 @@ sudo authselect create-profile sssd-disable-fp-on-login -b sssd --symlink-meta -
 The `--symlink-meta`, `--symlink-nsswitch` and `--symlink-pam` is needed because we only care about dconf locks and not
 the entire PAM stack and nsswitch.
 
-### Removing `dconf` Locks
+### Removing `dconf` locks
 
 Fire up your favorite editor again and edit `/etc/authselect/custom/sssd-disable-fp-on-login/dconf-locks`. The file will
 look like this:
@@ -199,7 +199,7 @@ the same as this snippet:
 /org/gnome/settings-daemon/peripherals/smartcard/removal-action {include if "with-smartcard-lock-on-removal"}
 ```
 
-### Adding `dconf` Directive to Disable Fingerprint Login
+### Adding `dconf` directive to disable fingerprint login
 
 Now we need to override `dconf` configuration for GDM login. Edit `/etc/dconf/db/gdm.d/99-fingerprint-no-login` to
 create custom configuration for `dconf`. The file content should be like this:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Menggunakan PySpark untuk Melakukan Hive CTAS via JDBC
+title: Menggunakan PySpark untuk melakukan Hive CTAS via JDBC
 date: '2021-03-15 20:58 +0700'
 image: /assets/images/hive-logo.png
 meta: Apache Hive logo
@@ -34,7 +34,7 @@ _table_ tersebut. Umumnya, untuk mengatasi masalah seperti ini, yang akan dilaku
 Masalah lain muncul, yaitu dikarenakan satu dan lain hal, performa JDBC melalui **HiveServer2** terasa kurang baik. Nah,
 tulisan berikut adalah sebuah _workaround_ untuk mengatasi _drop performance_ tersebut.
 
-## High-level Flow
+## High-level flow
 
 _Let's revisit how we access Hive tables through JDBC_. Umumnya, ketika menggunakan koneksi **Hive** JDBC pada
 **Spark/PySpark**, kita menggunakan _method_ berikut:
@@ -109,7 +109,7 @@ _Done!_ _Materialized temporary table_ sudah dapat diakses secara normal menggun
 df = spark.table(TEMP_TABLE)
 ```
 
-## Caveats and Potential Issues
+## Caveats and potential issues
 
 1. Jika _jar_ JDBC _driver_ berada di HDFS, maka `sparkContext` tidak akan secara otomatis menambah _jar_ tersebut pada
    _classpath_. _Workaround_ untuk _issue_ ini adalah dengan melakukan _query_ ringan terlebih dahulu melalui:

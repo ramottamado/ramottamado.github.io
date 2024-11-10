@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Use HBase FuzzyRowFilter in Spark
+title: How to use HBase FuzzyRowFilter in Spark
 date: '2020-06-16 21:57 +0700'
 keywords:
   - hbase

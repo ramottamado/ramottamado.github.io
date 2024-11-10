@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Low-level Left Join in Apache Flink
+title: Low-level left join in Apache Flink
 date: '2022-02-11 14:13 +0700'
 categories:
   - data engineering
@@ -26,7 +26,7 @@ To do low-level left joins between streams in Apache Flink, we need to utilize o
 
 ## Implementation
 
-### The `LeftStreamJoin` Class
+### The `LeftStreamJoin` class
 
 A fairly basic example of an abstract class extending `KeyedCoProcessFunction` to do low-level left join will look like:
 
@@ -73,7 +73,7 @@ public abstract class LeftStreamJoin<KEY, LEFT, RIGHT, OUT> extends
 
 In this abstract class, we define `LeftStreamJoin` extending `KeyedCoProcessFunction`. We define `stateName` as Flink's state name (Flink uses state name as the identifier) and `rightSideClass` as the class of the right side stream. We also created the transient field `rightSideState`, which we will initialize in the `open()` method. This field will hold the state for the right side stream, employing the Flink's `ValueState`. We will update the `rightSideState` every time a new record with the same key arrives. The abstract method `join()` will define how we join the streams in the implementing class.
 
-### The `open()` Method
+### The `open()` method
 
 The `open()` method, to initialize the `ValueState`:
 
@@ -91,7 +91,7 @@ public void open(final Configuration parameters) throws Exception {
 }
 ```
 
-### What to Do When the Right Side Stream Arrives
+### What to do when the right side stream arrives
 
 When we process the right side stream, we will update the `ValueState` every time a new record arrives. The implementation will look like this:
 
@@ -103,7 +103,7 @@ public void processElement2(final RIGHT value, final Context ctx, final Collecto
 }
 ```
 
-### Transforming the Left Side Stream
+### Transforming the left side stream
 
 Last but not least, we need to implement the method to process the left side stream. In this process, we will call the `join()` method to join the incoming record with the record from the right side stream that we currently have in the state store. It will look like this:
 

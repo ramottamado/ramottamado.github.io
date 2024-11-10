@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Review Asal-asalan: RumZat Simplisio'
+title: 'Review asal-asalan: RumZat Simplisio'
 date: '2019-09-28 20:17 +0700'
 published: true
 image: /assets/images/simplisio.jpg
