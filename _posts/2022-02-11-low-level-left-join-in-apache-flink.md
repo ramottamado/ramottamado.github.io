@@ -17,7 +17,6 @@ image: /assets/images/flink-1.webp
 redirect_from:
   - /low-level-left-join-in-apache-flink/
   - /low-level-streams-left-join-in-apache-flink/
-last_modified_at: '2024-02-04 13:51 +0700'
 ---
 
 ## Background

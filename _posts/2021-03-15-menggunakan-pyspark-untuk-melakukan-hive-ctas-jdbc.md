@@ -18,7 +18,6 @@ tags:
 redirect_from:
   - /cara-menggunakan-jvm-pada-pyspark-untuk-melakukan-query-via-jdbc/
   - /menggunakan-pyspark-untuk-melakukan-hive-ctas-jdbc/
-last_modified_at: '2024-02-04 13:51 +0700'
 ---
 
 ## Background

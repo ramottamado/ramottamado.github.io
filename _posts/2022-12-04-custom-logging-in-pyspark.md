@@ -18,7 +18,6 @@ description: Custom logging in PySpark, and disabling excessive logging.
 excerpt: Are you frustrated by excessive logging in PySpark?
 image: /assets/images/spark.png
 meta: Apache Spark logo
-last_modified_at: 2024-02-04 13:51 +0700
 ---
 
 Are you frustrated by excessive logging in PySpark? Do you feel those logs are not

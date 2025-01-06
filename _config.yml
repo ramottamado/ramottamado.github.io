@@ -45,15 +45,12 @@ github:
   username: ramottamado
 twitter:
   card: summary
-facebook:
-  publisher: 103250301049786
-  author: 100000091609630
 
 # Plugin
 sitemap:
   changefreq: monthly
 feed:
-  excerpt_only: true
+  excerpt_only: false
 
 # Jekyll
 excerpt_separator: <!--more-->

@@ -5,7 +5,7 @@ date: '2019-08-25 11:09 +0700'
 description: Langkah-langkah configure dan setup virtual server baru di Virtualmin.
 excerpt: Langkah-langkah configure dan setup virtual server baru di Virtualmin.
 meta: Virtualmin virtual server
-published: true
+published: false
 categories:
   - tutorial
   - linux
@@ -15,7 +15,6 @@ tags:
 image: /assets/images/virtualmin.png
 redirect_from:
   - /cara-membuat-virtual-server-baru-di-virtualmin/
-last_modified_at: '2022-02-07 23:36 +0700'
 ---
 _Hello_ pembaca sekalian. Kali ini saya akan menjelaskan langkah-langkah cepat untuk membuat _virtual server_ di **Virtualmin**.
 

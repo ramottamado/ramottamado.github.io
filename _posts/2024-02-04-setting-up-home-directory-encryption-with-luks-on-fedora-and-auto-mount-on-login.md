@@ -199,6 +199,14 @@ the same as this snippet:
 /org/gnome/settings-daemon/peripherals/smartcard/removal-action {include if "with-smartcard-lock-on-removal"}
 ```
 
+### Applying custom `authselect` profile
+
+Run this command to apply the profile that we created earlier:
+
+```shell
+sudo authselect select custom/sssd-disable-fp-on-login with-silent-lastlog with-mdns4 with-fingerprint
+```
+
 ### Adding `dconf` directive to disable fingerprint login
 
 Now we need to override `dconf` configuration for GDM login. Edit `/etc/dconf/db/gdm.d/99-fingerprint-no-login` to

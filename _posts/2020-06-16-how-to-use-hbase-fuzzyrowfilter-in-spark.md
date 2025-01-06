@@ -20,7 +20,6 @@ tags:
   - scala
 redirect_from:
   - /how-to-use-hbase-fuzzyrowfilter-in-spark/
-last_modified_at: '2024-02-04 13:51 +0700'
 ---
 I've been picking up some skills regarding big data engineering, and in this post, I want to share how to use Apache HBase **FuzzyRowFilter** in Apache Spark with Scala.<!--more--> Apache HBase is the Apache Hadoop database, a distributed, scalable, big data store.[^1] Apache Spark is a unified analytics engine for large-scale data processing.[^2]
 
