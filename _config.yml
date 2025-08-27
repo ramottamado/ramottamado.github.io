@@ -58,7 +58,7 @@ permalink: /:year/:month/:day/:title/
 
 # Build settings
 markdown: kramdown
-remote_theme: ramottamado/nadya
+remote_theme: ramottamado/nadya@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
