@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Setup Local DNS Server with CoreDNS & DNS Proxy Using Podman and systemd
-date: 2025-09-11 18:30 +0700
+date: 2025-09-11 18:25 +0700
 categories:
   - linux
   - containerization
